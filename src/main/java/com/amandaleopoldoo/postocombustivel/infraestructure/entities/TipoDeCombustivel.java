@@ -23,5 +23,5 @@ public class TipoDeCombustivel {
     private String nome; // Ex: "Gasolina", "Etanol"
 
     @Column(name = "preco_por_litro")
-    private BigDecimal precoPorLitro; // Usado para cálcular valores
+    private BigDecimal precoPorLitro; // Usado para cálculos de valores
 }
