@@ -4,6 +4,8 @@ package com.amandaleopoldoo.postocombustivel.infraestructure.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "bombas_de_Combustivel")
 @Getter
@@ -23,4 +25,7 @@ public class BombaDeCombustivel {
     @ManyToOne // Muitas bombas podem ter um tipo de combustível (ex: várias bombas de gasolina)
     @JoinColumn(name = "combustivel_id")
     private TipoDeCombustivel tipoDeCombustivel;
+
+    @OneToMany(mappedBy = "bombaDeCombustivel")
+    private List<Abastecimento> abastecimentos;
 }

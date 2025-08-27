@@ -23,7 +23,13 @@ public class AbastecimentoController {
     @PostMapping
     public ResponseEntity<Void> abastecer(@RequestParam Long litros,@RequestParam Integer idBomba) {
         abastecimentoService.abastecer(idBomba, litros);
-        return ResponseEntity.accepted().build(); // Retorna 202 Accepted
+        try {
+            abastecimentoService.abastecer(idBomba, litros);
+            return ResponseEntity.accepted().build();
+        } catch (Exception e) {
+            e.printStackTrace(); // loga o erro no terminal/log do docker
+            return ResponseEntity.status(500).build();
+        } // Retorna 202 Accepted
     }
 
     // GET para buscar todos os abastecimentos

@@ -20,7 +20,7 @@ public class Abastecimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne // Um abastecimento para uma bomba (no momento do registro)
+    @ManyToOne
     @JoinColumn(name = "bomba_id")
     private BombaDeCombustivel bombaDeCombustivel;
 
